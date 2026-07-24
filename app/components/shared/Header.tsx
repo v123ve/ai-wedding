@@ -33,7 +33,7 @@ export function Header({ onNavigate, currentPage }: HeaderProps) {
                   <Camera className="w-5 h-5 text-gold group-hover:scale-110 transition-transform duration-500" />
                 </div>
                 <span className="text-xl font-medium tracking-wide font-display text-alabaster uppercase group-hover:text-gold transition-colors duration-500">
-                  焕影 AI
+                  爱恋
                 </span>
               </button>
 
@@ -45,29 +45,7 @@ export function Header({ onNavigate, currentPage }: HeaderProps) {
                 >
                   创建
                 </button>
-                <button
-                  onClick={() => onNavigate('gallery')}
-                  className={`text-sm font-medium tracking-wide transition-colors duration-200 uppercase ${currentPage === 'gallery' || currentPage === 'testimonials' ? 'text-gold' : 'text-pearl/70 hover:text-alabaster'
-                    }`}
-                >
-                  画廊
-                </button>
-                <button
-                  onClick={() => onNavigate('pricing')}
-                  className={`text-sm font-medium tracking-wide transition-colors duration-200 uppercase ${currentPage === 'pricing' ? 'text-gold' : 'text-pearl/70 hover:text-alabaster'
-                    }`}
-                >
-                  定价
-                </button>
-                {user && (
-                  <button
-                    onClick={() => onNavigate('dashboard')}
-                    className={`text-sm font-medium tracking-wide transition-colors duration-200 uppercase ${currentPage === 'dashboard' ? 'text-gold' : 'text-pearl/70 hover:text-alabaster'
-                      }`}
-                  >
-                    我的作品
-                  </button>
-                )}
+
               </nav>
             </div>
 
@@ -146,18 +124,7 @@ export function Header({ onNavigate, currentPage }: HeaderProps) {
               >
                 创建
               </button>
-              <button
-                onClick={() => { onNavigate('gallery'); setMobileMenuOpen(false); }}
-                className="px-4 py-3 w-full text-xs tracking-wider uppercase font-medium text-left rounded-sm transition-colors text-pearl/70 hover:text-alabaster hover:bg-white/5"
-              >
-                画廊
-              </button>
-              <button
-                onClick={() => { onNavigate('pricing'); setMobileMenuOpen(false); }}
-                className="px-4 py-3 w-full text-xs tracking-wider uppercase font-medium text-left rounded-sm transition-colors text-pearl/70 hover:text-alabaster hover:bg-white/5"
-              >
-                定价
-              </button>
+
               {user ? (
                 <>
                   <button
@@ -172,12 +139,6 @@ export function Header({ onNavigate, currentPage }: HeaderProps) {
                       <span className="text-sm font-medium text-alabaster">{profile?.credits || 0} 积分</span>
                     </div>
                   </div>
-                  <button
-                    onClick={() => { onNavigate('dashboard'); setMobileMenuOpen(false); }}
-                    className="px-4 py-3 w-full text-xs tracking-wider uppercase font-medium text-left rounded-sm transition-colors text-pearl/70 hover:text-alabaster hover:bg-white/5"
-                  >
-                    我的作品
-                  </button>
                   {profile?.role === 'admin' && (
                     <a
                       href="/admin/templates"

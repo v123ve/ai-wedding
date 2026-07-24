@@ -102,7 +102,7 @@ export function GenerateSinglePage() {
         <div className="mb-12 text-center">
           <div className="inline-flex items-center gap-2 px-6 py-2.5 bg-white/5 border border-white/10 text-alabaster rounded-sm text-xs font-medium tracking-widest shadow-sm mb-8 uppercase">
             <Wand2 className="w-4 h-4 text-gold opacity-80" />
-            焕影 AI
+            爱恋
           </div>
           <h1 className="mb-4 text-4xl font-medium md:text-5xl font-display text-alabaster uppercase tracking-wider">
             生成全新的

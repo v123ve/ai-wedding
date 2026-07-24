@@ -256,7 +256,7 @@ async function uploadImage(
 
     if (res.ok) {
       const data = await res.json();
-      return data.presignedUrl || data.url || imageDataUrl;
+      return data.url || data.presignedUrl || imageDataUrl;
     }
   } catch {
     // fallback to dataUrl

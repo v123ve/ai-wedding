@@ -107,11 +107,6 @@ graph TD
 ### macOS / Linux
 
 ```bash
-# 1. 克隆项目
-git clone https://github.com/qqzhangyanhua/ai-wedding.git
-cd ai-wedding
-
-# 2. 一键部署（交互式引导配置 + 启动）
 bash deploy.sh
 ```
 
@@ -143,14 +138,7 @@ bash deploy.sh restore    # 恢复数据库
 在 **PowerShell** 中运行：
 
 ```powershell
-# 1. 克隆项目
-git clone https://github.com/qqzhangyanhua/ai-wedding.git
-cd ai-wedding
-
-# 2. 允许运行脚本（仅首次需要）
 Set-ExecutionPolicy -Scope CurrentUser -ExecutionPolicy RemoteSigned
-
-# 3. 一键部署（交互式引导配置 + 启动）
 .\deploy.ps1
 ```
 
@@ -287,15 +275,11 @@ pnpm add -g pm2
 ### 快速部署
 
 ```bash
-# 1. 克隆项目
-git clone https://github.com/qqzhangyanhua/ai-wedding.git
-cd ai-wedding
-
-# 2. 配置环境变量
+# 配置环境变量
 cp .env.example .env
 # 编辑 .env 填入实际配置（注意 DATABASE_URL 指向你的 PostgreSQL 实例）
 
-# 3. 一键部署（安装依赖 + 构建 + 启动 PM2）
+# 一键部署（安装依赖 + 构建 + 启动 PM2）
 pnpm deploy
 ```
 
@@ -693,18 +677,3 @@ docker --version && docker compose version
 ```
 
 ---
-
-## 获取帮助
-
-如果上述方法无法解决你的问题：
-
-1. **查看完整日志**：收集错误日志并仔细阅读错误信息
-2. **搜索 Issues**：在 [GitHub Issues](https://github.com/qqzhangyanhua/ai-wedding/issues) 搜索类似问题
-3. **提交 Issue**：提供详细信息（操作系统、Docker 版本、错误日志、复现步骤）
-4. **加入讨论**：在 [Discussions](https://github.com/qqzhangyanhua/ai-wedding/discussions) 与社区交流
-
----
-
-**文档版本**：v3.0
-**最后更新**：2026-03-05
-**维护者**：AI Wedding Team

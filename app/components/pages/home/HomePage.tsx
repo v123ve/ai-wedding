@@ -417,7 +417,7 @@ export function HomePage({ onNavigate }: HomePageProps) {
             </h2>
 
             <p className="mb-14 text-xl text-pearl/60 font-light max-w-2xl mx-auto leading-relaxed">
-              已有万名用户用焕影 AI 生成了心仪的照片。上传照片，几秒钟即可获得婚纱照、证件照、艺术写真等多种风格作品。
+              已有万名用户用爱恋 生成了心仪的照片。上传照片，几秒钟即可获得婚纱照、证件照、艺术写真等多种风格作品。
             </p>
 
             <button

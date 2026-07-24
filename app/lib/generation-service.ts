@@ -181,7 +181,7 @@ export async function generateAsAuthenticated(
             });
             if (uploadRes.ok) {
               const payload = await uploadRes.json();
-              storedUrl = payload.presignedUrl || payload.url || imageUrl;
+              storedUrl = payload.url || payload.presignedUrl || imageUrl;
             } else {
               console.warn(`第 ${i + 1} 张图片上传失败，使用 dataURL 回退:`, await uploadRes.text());
             }

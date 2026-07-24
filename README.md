@@ -1,24 +1,5 @@
 # 多领域 AI 图片生成平台
 
-<div align="center">
-
-基于 AI 技术的多领域图片生成平台，上传照片，选择模板，AI 自动生成专业级作品。支持婚礼、证件、艺术、动漫、风景、商品等多种风格。
-
-**🚀 跨平台支持：Windows | macOS | Linux 一键部署**
-
-[![Next.js](https://img.shields.io/badge/Next.js-14-black)](https://nextjs.org/)
-[![TypeScript](https://img.shields.io/badge/TypeScript-5.5-blue)](https://www.typescriptlang.org/)
-[![PostgreSQL](https://img.shields.io/badge/PostgreSQL-Prisma-336791)](https://www.postgresql.org/)
-[![TailwindCSS](https://img.shields.io/badge/TailwindCSS-3.4-38bdf8)](https://tailwindcss.com/)
-[![Docker](https://img.shields.io/badge/Docker-Ready-2496ED)](https://www.docker.com/)
-[![Platform](https://img.shields.io/badge/Platform-Windows%20%7C%20macOS%20%7C%20Linux-success)](https://github.com/qqzhangyanhua/ai-wedding)
-
-[功能特性](#-核心特性) | [快速部署](#-快速部署) | [本地开发](#-本地开发) | [部署文档](./DEPLOYMENT.md)
-
-</div>
-
----
-
 ## 项目简介
 
 通过 AI 图像生成技术，让用户上传照片并选择场景模板（巴黎、东京、冰岛等），快速生成专业级图片。支持婚礼、证件、艺术、动漫、风景、商品等多领域。
@@ -49,30 +30,7 @@
 
 项目提供一键部署脚本，**完全支持 Windows、macOS、Linux 三大平台**，自动检测系统环境并引导配置。
 
-### 🍎 macOS / Linux
-
-```bash
-# 1. 克隆项目
-git clone https://github.com/qqzhangyanhua/ai-wedding.git
-cd ai-wedding
-
-# 2. 一键部署（交互式引导配置 + 启动）
-bash deploy.sh
-```
-
-### 🪟 Windows (PowerShell)
-
-```powershell
-# 1. 克隆项目
-git clone https://github.com/qqzhangyanhua/ai-wedding.git
-cd ai-wedding
-
-# 2. 允许运行脚本（仅首次需要，以管理员身份运行 PowerShell）
-Set-ExecutionPolicy -Scope CurrentUser -ExecutionPolicy RemoteSigned
-
-# 3. 一键部署
 .\deploy.ps1
-```
 
 > **Windows 用户注意**：
 > - 需要先安装 [Docker Desktop for Windows](https://docs.docker.com/desktop/install/windows-install/) 并启用 WSL2
@@ -125,14 +83,8 @@ Set-ExecutionPolicy -Scope CurrentUser -ExecutionPolicy RemoteSigned
 ### 开发步骤
 
 ```bash
-# 1. 克隆项目
-git clone https://github.com/qqzhangyanhua/ai-wedding.git
-cd ai-wedding
-
-# 2. 安装依赖
 pnpm install
-
-# 3. 配置环境变量
+# 配置环境变量
 # macOS / Linux
 cp .env.example .env
 
@@ -323,14 +275,6 @@ A: 运行 `pnpm fix-minio` 或参考 [DEPLOYMENT.md](./DEPLOYMENT.md#常见问�
 - **TypeScript**: 严格模式，禁止 `any`
 - **组件**: 单个组件不超过 500 行
 - **样式**: 优先使用 Tailwind CSS
-
----
-
-## 联系方式
-
-- **Bug 报告**: [Issues](https://github.com/qqzhangyanhua/ai-wedding/issues)
-- **功能建议**: [Issues](https://github.com/qqzhangyanhua/ai-wedding/issues)
-- **讨论交流**: [Discussions](https://github.com/qqzhangyanhua/ai-wedding/discussions)
 
 ---
 

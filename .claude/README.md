@@ -217,14 +217,6 @@ pnpm fix-minio:urls         # 刷新 URL
 
 ---
 
-## 📞 获取帮助
-
-- **GitHub Issues**: https://github.com/qqzhangyanhua/ai-wedding/issues
-- **部署问题**: 参考 `DEPLOYMENT.md` 的故障排查章节
-- **开发问题**: 参考 `CLAUDE.md` 的架构文档
-
----
-
 ## 📝 项目清理记录
 
 ### 2026-03-05 清理操作

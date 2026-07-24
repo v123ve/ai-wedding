@@ -227,8 +227,23 @@ const ALLOWED_IMAGE_MIME_TYPES = [
 export async function convertUrlToBase64(url: string): Promise<string> {
   if (url.startsWith('data:')) return url;
 
+  // 修复：替换内部 Docker 主机名为 localhost，确保服务器端可以访问
+  let resolvedUrl = url;
+  try {
+    const parsed = new URL(url);
+    if (parsed.hostname !== 'localhost' && parsed.hostname !== '127.0.0.1') {
+      // 如果主机名不是标准可解析地址（如 "minio"），尝试替换为 localhost
+      if (!parsed.hostname.includes('.') && parsed.hostname !== '::1') {
+        parsed.hostname = 'localhost';
+        resolvedUrl = parsed.toString();
+      }
+    }
+  } catch {
+    // URL 解析失败则原样使用
+  }
+
   // SSRF 防护：检查 URL 安全性
-  if (isPrivateOrSensitiveUrl(url)) {
+  if (isPrivateOrSensitiveUrl(resolvedUrl)) {
     throw new Error('Access to private or sensitive URLs is not allowed');
   }
 
@@ -237,7 +252,7 @@ export async function convertUrlToBase64(url: string): Promise<string> {
   const timeoutId = setTimeout(() => controller.abort(), 10000); // 10秒超时
 
   try {
-    const response = await fetch(url, {
+    const response = await fetch(resolvedUrl, {
       signal: controller.signal,
       redirect: 'manual', // 禁用自动重定向，防止绕过检查
       headers: {

@@ -152,7 +152,7 @@ export default function GalleryPage() {
         <FadeIn delay={0.1}>
           <div className="mb-12 text-center">
             <h1 className="mb-4 text-4xl font-medium font-display text-alabaster uppercase tracking-wider">
-              焕影 AI 画廊
+              爱恋 画廊
             </h1>
             <p className="mx-auto max-w-2xl text-lg text-pearl/60 font-light">
               欣赏由AI生成的精美作品，发现无限创意灵感

@@ -36,7 +36,7 @@ export function useImageUpload({ user, onError, onSuccess }: UseImageUploadProps
         const result = await response.json();
         setUploadState(prev => ({
           ...prev,
-          uploadedImageUrl: result.presignedUrl || result.url,
+          uploadedImageUrl: result.url || result.presignedUrl,
         }));
         console.log('图片已上传到 MinIO:', result.url);
       } else {

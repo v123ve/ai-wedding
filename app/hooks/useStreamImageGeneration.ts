@@ -36,7 +36,7 @@ export function useStreamImageGeneration({ onError, onSuccess }: UseStreamImageG
 
       if (response.ok) {
         const result = await response.json();
-        const resultImageUrl = result.presignedUrl || result.url || imageDataUrl;
+        const resultImageUrl = result.url || result.presignedUrl || imageDataUrl;
         console.log('生成的图片已上传到 MinIO:', resultImageUrl);
         
         // 静默保存到数据库
@@ -64,7 +64,7 @@ export function useStreamImageGeneration({ onError, onSuccess }: UseStreamImageG
 
               if (uploadResponse.ok) {
                 const uploadResult = await uploadResponse.json();
-                originalImageUrl = uploadResult.presignedUrl || uploadResult.url || originalImage;
+                originalImageUrl = uploadResult.url || uploadResult.presignedUrl || originalImage;
                 console.log('原图已上传到 MinIO:', originalImageUrl);
               } else {
                 console.warn('原图上传到 MinIO 失败，使用 base64');

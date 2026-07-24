@@ -23,7 +23,7 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: '焕影 AI — AI 智能写真',
+  title: '爱恋 — AI 智能写真',
   description: '上传照片，AI 即刻生成婚纱照、证件照、艺术写真等多种风格高清影像',
 };
 
@@ -42,7 +42,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                   <div className="grid grid-cols-1 md:grid-cols-4 gap-12">
                     <div className="col-span-1 md:col-span-2">
-                      <h3 className="text-2xl font-display font-medium mb-4 uppercase tracking-widest text-pearl">焕影 AI</h3>
+                      <h3 className="text-2xl font-display font-medium mb-4 uppercase tracking-widest text-pearl">爱恋</h3>
                       <p className="text-pearl/60 mb-6 max-w-sm leading-relaxed font-light">
                         上传照片，AI 即刻生成婚纱照、证件照、艺术写真等多种风格高清影像。让每一张照片都焕发新生。
                       </p>
@@ -76,7 +76,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                     </div>
                   </div>
                   <div className="border-t border-white/5 mt-16 pt-8 text-center text-pearl/40 text-sm font-light tracking-wide">
-                    <p>&copy; 2025 焕影 AI. 保留所有权利。</p>
+                    <p>&copy; 2025 爱恋. 保留所有权利。</p>
                   </div>
                 </div>
               </footer>

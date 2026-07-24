@@ -12,7 +12,7 @@ export function generateShareText(options: ShareCardOptions): string {
   const inviteTail = inviteCode ? `\n🎁 邀请码：${inviteCode}（新用户有礼）` : '';
   const linkTail = siteUrl ? `\n🔗 体验链接：${siteUrl}${inviteCode ? `?inv=${inviteCode}` : ''}` : '';
 
-  return `✨ 我用焕影 AI 创作了${imageCount}张${templateName}风格的作品！
+  return `✨ 我用爱恋 创作了${imageCount}张${templateName}风格的作品！
 
 📸 项目：${projectName}
 🎨 风格：${templateName}
@@ -174,7 +174,7 @@ export async function generateShareCardImage(opts: ShareCardOptions): Promise<st
   // 标题
   ctx.fillStyle = '#0b1220';
   ctx.font = '700 44px Cormorant, serif';
-  ctx.fillText('焕影 AI', cardX + 32, cardY + 64);
+  ctx.fillText('爱恋', cardX + 32, cardY + 64);
 
   // 项目名 + 模板
   ctx.font = '600 24px Inter, system-ui, -apple-system, sans-serif';

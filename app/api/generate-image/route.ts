@@ -280,7 +280,7 @@ async function uploadImages(
       });
       if (up.ok) {
         const payload = await up.json();
-        uploaded.push(payload.presignedUrl || payload.url || dataUrl);
+        uploaded.push(payload.url || payload.presignedUrl || dataUrl);
       } else {
         log.warn(`上传失败（${mode} 模式），使用 dataURL 回退`);
         uploaded.push(dataUrl);

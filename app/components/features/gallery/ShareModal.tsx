@@ -94,7 +94,7 @@ export function ShareModal({
               />
               {/* 水印 */}
               <div className="absolute bottom-4 right-4 bg-obsidian/80 backdrop-blur-md px-4 py-2 rounded-sm shadow-xl border border-white/10">
-                <p className="text-sm font-medium tracking-widest uppercase text-pearl/80">焕影 AI</p>
+                <p className="text-sm font-medium tracking-widest uppercase text-pearl/80">爱恋</p>
               </div>
             </div>
             <div className="space-y-2">

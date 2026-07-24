@@ -56,8 +56,7 @@ export function ImageUploadField({ currentUrl, onUrlChange }: ImageUploadFieldPr
       }
 
       const data = await response.json();
-      // Use presignedUrl for external access (has temporary signature)
-      onUrlChange(data.presignedUrl || data.url);
+      onUrlChange(data.url || data.presignedUrl);
     } catch (error) {
       console.error('上传出错:', error);
       setUploadError(error instanceof Error ? error.message : '上传失败');
