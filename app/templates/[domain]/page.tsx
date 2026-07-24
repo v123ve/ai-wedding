@@ -1,8 +1,8 @@
 import Link from 'next/link';
-import Image from 'next/image';
 import { notFound } from 'next/navigation';
-import { ArrowLeft, Sparkles, Image as ImageIcon } from 'lucide-react';
+import { ArrowLeft, Image as ImageIcon } from 'lucide-react';
 import { prisma } from '@/lib/prisma';
+import { TemplateCardWithPrompts } from '@/components/templates/TemplateCardWithPrompts';
 
 interface TemplateDomainPageProps {
   params: Promise<{ domain: string }>;
@@ -65,50 +65,11 @@ export default async function TemplateDomainPage({ params }: TemplateDomainPageP
         ) : (
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
             {templates.map((template) => (
-              <div
+              <TemplateCardWithPrompts
                 key={template.id}
-                className="group bg-black/40 border border-white/10 rounded-sm overflow-hidden transition-all duration-500 hover:shadow-xl hover:-translate-y-1 hover:border-gold/30"
-              >
-                <div className="relative aspect-[3/4] overflow-hidden">
-                  {template.preview_image_url ? (
-                    <Image
-                      src={template.preview_image_url}
-                      alt={template.name}
-                      fill
-                      className="object-cover transition-transform duration-700 group-hover:scale-105"
-                      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
-                    />
-                  ) : (
-                    <div className="w-full h-full bg-white/5 flex items-center justify-center">
-                      <ImageIcon className="w-12 h-12 text-pearl/20" />
-                    </div>
-                  )}
-                  <div className="absolute inset-0 bg-gradient-to-t from-obsidian/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                </div>
-
-                <div className="p-5">
-                  <h3 className="font-medium font-display text-alabaster tracking-wide mb-1 line-clamp-1">
-                    {template.name}
-                  </h3>
-                  {template.description && (
-                    <p className="text-xs text-pearl/50 font-light mb-4 line-clamp-2">
-                      {template.description}
-                    </p>
-                  )}
-                  <div className="flex items-center justify-between">
-                    <span className="text-xs text-pearl/40 tracking-wider">
-                      {template.price_credits} 积分
-                    </span>
-                    <Link
-                      href={`/create?domain=${domain}`}
-                      className="inline-flex items-center gap-1.5 px-4 py-2 bg-gold text-obsidian rounded-sm text-xs font-medium tracking-wider uppercase hover:shadow-glow transition-all duration-500"
-                    >
-                      <Sparkles className="w-3 h-3" />
-                      使用模板
-                    </Link>
-                  </div>
-                </div>
-              </div>
+                template={template}
+                domain={domain}
+              />
             ))}
           </div>
         )}

@@ -1,0 +1,28 @@
+{
+  "id": "skill-to-template",
+  "name": "skill-to-template",
+  "title": "将 ai-wedding-studio skill 精华转化为默认配置与模板",
+  "description": "",
+  "status": "in_progress",
+  "dev_type": null,
+  "scope": null,
+  "package": null,
+  "priority": "P2",
+  "creator": "v123ve",
+  "assignee": "v123ve",
+  "createdAt": "2026-07-24",
+  "completedAt": null,
+  "branch": null,
+  "base_branch": "main",
+  "worktree_path": null,
+  "commit": null,
+  "pr_url": null,
+  "subtasks": [],
+  "children": [
+    "07-24-template-prompt-viewer"
+  ],
+  "parent": null,
+  "relatedFiles": [],
+  "notes": "",
+  "meta": {}
+}

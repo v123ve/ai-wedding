@@ -1,0 +1,6 @@
+{"file": ".trellis/tasks/07-24-template-prompt-viewer/prd.md", "reason": "Feature requirements for template prompt viewer"}
+{"file": ".trellis/tasks/07-24-template-prompt-viewer/design.md", "reason": "Component architecture, data flow, and UI design"}
+{"file": ".trellis/tasks/07-24-template-prompt-viewer/implement.md", "reason": "Execution checklist"}
+{"file": "app/templates/[domain]/page.tsx", "reason": "Target file: modify Prisma query and card rendering"}
+{"file": "app/components/pages/templates/TemplatesPage.tsx", "reason": "Reference for existing template card UI patterns"}
+{"file": "prisma/seed-data/templates.ts", "reason": "Source data with prompt_config and prompt_list structure"}

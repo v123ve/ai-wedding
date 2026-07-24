@@ -1,0 +1,10 @@
+{"file": ".trellis/tasks/07-24-skill-to-template/prd.md", "reason": "Feature requirements and acceptance criteria for both deliverables"}
+{"file": ".trellis/tasks/07-24-skill-to-template/design.md", "reason": "Technical design: prompt-builder enhancement and YAML-to-TemplateSeed mapping"}
+{"file": ".trellis/tasks/07-24-skill-to-template/implement.md", "reason": "Execution checklist for Step 1 (prompt-builder) and Step 2 (seed templates)"}
+{"file": "app/lib/prompt-strategies/prompt-builder.ts", "reason": "Target file for D1: wedding domain DEFAULT_CONFIGS enhancement"}
+{"file": "prisma/seed-data/templates.ts", "reason": "Target file for D2: append 3 new wedding TemplateSeed entries"}
+{"file": "C:/Users/admin/.config/opencode/skills/ai-wedding-studio/assets/packages/maldives-sunset.yml", "reason": "Source for Template 9: Maldives Sunset Wedding package"}
+{"file": "C:/Users/admin/.config/opencode/skills/ai-wedding-studio/assets/packages/dali-sunrise.yml", "reason": "Source for Template 10: Dali Sunrise Wedding package"}
+{"file": "C:/Users/admin/.config/opencode/skills/ai-wedding-studio/assets/packages/chinese-xiuhe-studio.yml", "reason": "Source for Template 11: Chinese Studio Xiuhe Wedding package"}
+{"file": "C:/Users/admin/.config/opencode/skills/ai-wedding-studio/references/quality-rules.md", "reason": "Source for identity preservation, anatomy, wardrobe, and quality standards to inject into DEFAULT_CONFIGS"}
+{"file": "AGENTS.md", "reason": "Build, lint, typecheck commands"}
