@@ -3,7 +3,8 @@
 import { useState, useCallback } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { Sparkles, Image as ImageIcon, ChevronDown, ChevronUp, Copy, Check } from 'lucide-react';
+import { Sparkles, Heart, ArrowRight, Image as ImageIcon, ChevronDown, ChevronUp, Copy, Check } from 'lucide-react';
+import { getTemplatePreviewImage } from '@/lib/domain-fallbacks';
 
 interface PromptConfig {
   basePrompt?: string;
@@ -12,23 +13,39 @@ interface PromptConfig {
   [key: string]: unknown;
 }
 
-interface TemplateCardWithPromptsProps {
-  template: {
-    id: string;
-    name: string;
-    description: string | null;
-    category: string;
-    preview_image_url: string | null;
-    prompt_config: unknown;
-    prompt_list: unknown;
-    price_credits: number;
-    is_active: boolean;
-    sort_order: number;
-  };
-  domain: string;
+export interface TemplateCardData {
+  id: string;
+  name: string;
+  description: string | null;
+  category?: string;
+  domain?: string;
+  preview_image_url: string | null;
+  prompt_config: unknown;
+  prompt_list: unknown;
+  price_credits: number;
+  is_active: boolean;
+  sort_order: number;
 }
 
-export function TemplateCardWithPrompts({ template, domain }: TemplateCardWithPromptsProps) {
+interface TemplateCardWithPromptsProps {
+  template: TemplateCardData;
+  domain?: string;
+  showFavorites?: boolean;
+  isFavorited?: boolean;
+  onToggleFavorite?: () => void;
+  onUseTemplate?: () => void;
+  categoryLabel?: string;
+}
+
+export function TemplateCardWithPrompts({
+  template,
+  domain,
+  showFavorites,
+  isFavorited,
+  onToggleFavorite,
+  onUseTemplate,
+  categoryLabel,
+}: TemplateCardWithPromptsProps) {
   const [expanded, setExpanded] = useState(false);
   const [copiedLabel, setCopiedLabel] = useState<string | null>(null);
 
@@ -83,7 +100,7 @@ export function TemplateCardWithPrompts({ template, domain }: TemplateCardWithPr
       <div className="relative aspect-[3/4] overflow-hidden">
         {template.preview_image_url ? (
           <Image
-            src={template.preview_image_url}
+            src={getTemplatePreviewImage(template.preview_image_url, template.domain)}
             alt={template.name}
             fill
             className="object-cover transition-transform duration-700 group-hover:scale-105"
@@ -95,6 +112,38 @@ export function TemplateCardWithPrompts({ template, domain }: TemplateCardWithPr
           </div>
         )}
         <div className="absolute inset-0 bg-gradient-to-t from-obsidian/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+
+        {showFavorites && (
+          <button
+            onClick={(e) => {
+              e.stopPropagation();
+              onToggleFavorite?.();
+            }}
+            className="absolute top-4 right-4 w-10 h-10 bg-black/60 border border-white/10 backdrop-blur-sm rounded-full hover:bg-black/80 flex items-center justify-center transition-all duration-500 hover:scale-110 shadow-lg z-10"
+            aria-label={isFavorited ? '取消典藏' : '典藏模板'}
+          >
+            <Heart
+              className={`w-4 h-4 transition-colors ${isFavorited ? 'fill-gold text-gold' : 'text-alabaster group-hover:text-gold'}`}
+            />
+          </button>
+        )}
+
+        {onUseTemplate && (
+          <div className="absolute bottom-6 left-6 right-6 opacity-0 group-hover:opacity-100 translate-y-4 group-hover:translate-y-0 transition-all duration-700 delay-100 z-10">
+            <button
+              onClick={onUseTemplate}
+              className="w-full px-4 py-4 bg-gold text-obsidian rounded-sm hover:shadow-[0_0_15px_rgba(200,160,100,0.4)] transition-all duration-500 shadow-xl font-medium tracking-widest text-xs uppercase flex items-center justify-center gap-3"
+            >
+              应用此方案
+              <ArrowRight className="w-4 h-4" />
+            </button>
+          </div>
+        )}
+
+        <div className="absolute top-4 left-4 px-3 py-1.5 bg-black/60 border border-white/10 backdrop-blur-sm rounded-sm flex items-center gap-2 shadow-sm z-10">
+          <Sparkles className="w-3 h-3 text-gold" />
+          <span className="text-xs font-medium text-alabaster tracking-widest">{template.price_credits}</span>
+        </div>
       </div>
 
       <div className="p-5">
@@ -114,7 +163,7 @@ export function TemplateCardWithPrompts({ template, domain }: TemplateCardWithPr
             {hasPrompts && (
               <button
                 onClick={() => setExpanded(!expanded)}
-                className="inline-flex items-center gap-1 px-3 py-2 text-xs tracking-wider uppercase font-medium text-gold hover:text-alabaster border border-gold/30 hover:border-gold/60 rounded-sm transition-all duration-300"
+                className="inline-flex items-center gap-1 px-3 py-2 text-xs tracking-wider uppercase font-medium text-gold hover:text-alabaster border border-gold/30 hover:border-gold/60 rounded-sm transition-all duration-300 whitespace-nowrap"
                 aria-label={expanded ? '收起提示词' : '查看提示词'}
               >
                 {expanded ? (
@@ -130,15 +179,33 @@ export function TemplateCardWithPrompts({ template, domain }: TemplateCardWithPr
                 )}
               </button>
             )}
-            <Link
-              href={`/create?domain=${domain}`}
-              className="inline-flex items-center gap-1.5 px-4 py-2 bg-gold text-obsidian rounded-sm text-xs font-medium tracking-wider uppercase hover:shadow-glow transition-all duration-500"
-            >
-              <Sparkles className="w-3 h-3" />
-              使用模板
-            </Link>
+            {onUseTemplate ? (
+              <button
+                onClick={onUseTemplate}
+                className="inline-flex items-center gap-1.5 px-4 py-2 bg-gold text-obsidian rounded-sm text-xs font-medium tracking-wider uppercase hover:shadow-glow transition-all duration-500"
+              >
+                <Sparkles className="w-3 h-3" />
+                使用模板
+              </button>
+            ) : (
+              <Link
+                href={`/create?domain=${domain}`}
+                className="inline-flex items-center gap-1.5 px-4 py-2 bg-gold text-obsidian rounded-sm text-xs font-medium tracking-wider uppercase hover:shadow-glow transition-all duration-500"
+              >
+                <Sparkles className="w-3 h-3" />
+                使用模板
+              </Link>
+            )}
           </div>
         </div>
+
+        {categoryLabel && (
+          <div className="mt-3 pt-3 border-t border-white/10">
+            <span className="text-[10px] font-medium text-pearl/40 uppercase tracking-[0.2em]">
+              {categoryLabel}
+            </span>
+          </div>
+        )}
 
         {expanded && hasPrompts && (
           <div className="mt-4 bg-white/5 border border-white/10 rounded-sm p-4 space-y-3">

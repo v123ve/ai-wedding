@@ -30,6 +30,8 @@ export async function GET(request: NextRequest) {
         category: t.category,
         domain: t.domain,
         preview_image_url: t.preview_image_url,
+        prompt_config: t.prompt_config,
+        prompt_list: t.prompt_list,
         prompt_count: promptCount,
         prompt_descriptions: promptDescs,
         price_credits: t.price_credits,
