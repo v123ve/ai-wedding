@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Search } from 'lucide-react';
+import { Search, Sparkles } from 'lucide-react';
 import { categoryInfo } from '@/data/mockData';
 import { Template } from '@/types/database';
 import { useAuth } from '@/contexts/AuthContext';
