@@ -115,7 +115,7 @@ async function main() {
     }
 
     await prisma.templates.create({
-      data: tpl,
+      data: tpl as any,
     });
 
     created++;
